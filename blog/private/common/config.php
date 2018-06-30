@@ -1,6 +1,6 @@
 <?php
 // FILE_PATH
-define("BASE_PATH", "/Applications/MAMP/htdocs/blog/" );
+define("BASE_PATH", "/Applications/MAMP/htdocs/blog/");
 define("PUBLIC_PATH", BASE_PATH);
 define("PRIVATE_PATH", BASE_PATH. "private/");
 define("TEMPLATE_PATH", PRIVATE_PATH. "view/");
