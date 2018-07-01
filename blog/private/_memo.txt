@@ -1,0 +1,1004 @@
+# 五味さんgithub
+https://github.com/gomiryo/blog
+
+
+
+# 20180602
+
+
+
+# TODO
+・環境構築
+・Git (Github)はコマンドラインで自由に記載
+・form、input系の記述
+・DB、SQL
+・オブジェクト指向
+　└クラスとインスタンス
+　└継承
+・MVCモデル
+・AjaxとJSON
+
+
+
+# 疑問
+・gitコマンドで削除
+
+
+
+
+# Wi-Fi
+guest-wifi
+yutoliyutoli
+
+
+
+# 五味さん自己紹介
+・php10年以上
+・Python、Ruby、JavaScriptも経験あり
+・サーバー構築、サーバー保守
+・検索エンジン
+・侍エンジニアリング
+　└素人にプログラミングを教えている
+・フィードバックを得ながら進めていく
+・こういうのがやりたいというのがあったら発信
+　└難易度は上げることができる
+・フレームワークは選んでない
+・コボル：VB→全部の言語がグローバル変数、おじさんのプログラム
+
+
+
+## 目的
+・仕事の幅を広げるためにphp
+・技術力の証明
+・要件定義、設計書を書く
+・自信をつけてもらう、楽しんでやってもらう
+　└全部できると怖くない
+・WEBアプリケーションを作る
+・要件定義ができる、お客さんにヒアリングできる
+　└自分でできた方が単価が上がりやすい
+・自作システムアピール
+・アピールポイントになるものを
+　└API連携、スラックと連携
+
+
+
+## 進め方
+・もくもく書いてもらう
+　└つまづいたら聞いて解決
+・ローカル開発環境
+・最初は流しで
+　└form、input系の記述など
+・素のPHPを書いていく
+・SQLあたりデータベースと繋げるところわかれば
+　└アプリケーションが作れるようになる
+　└PDO：SQLのライブラリ、ゴリゴリ書いていく
+・MVCモデルの概念をつかめれば、どこの現場に行っても大丈夫
+・RDBNSはできないと話にならない
+　└テーブルをつなげる
+・汚くなってくる
+　└直せなくなってくる
+　└現場に入っても学べるもののではない
+　└リファクタリングが必要、関数出す、オブジェクトなど
+　└個人でやってる人よりも詳しい、一人でやっている時にならないところも話してくれる
+・自分のシステムを作っていく
+・わからなくなったらマニュアル、リファレンスを見る
+　http://php.net/manual/ja/function.file-put-contents.php
+
+
+
+
+# 環境設定
+## 環境設定ファイルにパスを通す
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+
+MAMPでは設定できないので、gulpで対応
+　└MAMPでの開発環境
+
+
+
+
+# 記述
+ファイル
+
+マニュアルの見方
+https://webkaru.net/php/function-file-put-contents/
+
+int file_put_contents ( string $filename , mixed $data [, int $flags = 0 [, resource $context ]] )
+
+↓
+
+fopen()、fwrite()、 fclose() 
+開いて、書いて、閉じる
+本当はこちらの方がいい
+
+・intは数値：バイトを返す
+・[]は任意
+
+
+
+
+## データベース
+・MySQL：次回触る
+　└ワードプレスも使っている
+
+・用途によって使い分けられるようになるといい
+　└これは何でやっているのか
+　└何で動いているのか考える癖
+
+
+
+・流れ
+webサーバー
+↓
+アプリケーションサーバ（php、node.js）
+↓
+データベースサーバー
+
+・phpわかれば他わかればいらない
+
+
+
+
+・ターミナルになれる
+php -lでphpのlint（文法確認）ができる
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 20180609
+
+・phpとpboを接続する
+　→もしくはコマンドでログインしてみる？
+・調べてわからないことを聞くスタイル
+・mysqlコマンド入れる
+・起動しているか、コマンドで確認
+
+
+htdocs
+の中にサンプルコードをいれて展開してみる
+
+sudo su
+ルートに行く
+
+phpmyadminで作る
+
+
+
+
+
+
+.cd pravate/brog/db.php
+
+
+
+
+テーブル表計算
+
+器を作る
+テーブルが入る
+id、などのカラム
+定義の仕方はぐぐる
+
+phpmyadminインストール
+https://www.dbonline.jp/phpmyadmin/install/index1.html#section1
+
+絶対パスで記載
+
+
+
+
+# 方針
+・mysqlをまずは入れる
+・ダメだったらMUMPをアンインストール
+
+nodebrewとhomebrewのインストール
+https://gist.github.com/manabuyasuda/8d68689ae274cee8946f5cc771312431
+
+http://tweeeety.hateblo.jp/entry/2014/10/03/195429
+
+◯ nodebrew -v
+× homebrew -v
+
+mysqlのインストール
+http://tweeeety.hateblo.jp/entry/2014/11/26/232200
+
+
+
+
+
+# MAMPのインストール
+## MAMPの場所
+「htdocs」というフォルダに保存します。
+Macintosh HD/アプリケーション/MAMP/htdocs/myfolder/myfile.htm
+
+
+## MAMPの設定方法
+https://www.webdlab.com/local/local-mamp/
+
+
+## プリインストールされているApacheを停止
+Mac OS XはApacheとMySQLがプリインストールされている
+MAMPとの競合による不具合を避けるため、プリインストールされているApacheを停止
+
+
+## 学び
+MAMPやその他ツールが動かない場合、原因が不明な場合
+アンインストールして再インストールした方が早い
+
+
+
+
+# データベースについて
+https://www.sejuku.net/blog/8763
+
+## データベースとは
+「複数で共有、利用されること」「検索、加工すること」　を満たしたデータの集まり
+
+
+## リレーショナルモデル
+「データを整理して貯める」
+「データを情報として活用しやすくする」
+
+データを整理して管理する方法をデータ・モデル
+最も効率の良いデータ・モデルを関係モデル（リレーショナルモデル）」という
+
+
+## リレーショナルデータベース（RDB）とは
+テーブルの表形式
+エクセルのシートにあたるものをテーブル
+行はレコード
+列はフィールド
+
+注意：レコードのデータは一意でないといけない
+列名は属性：スプレットシートの一番上のカテゴリのこと
+
+
+## リレーショナルデータベースが使われる理由
+「データの重複を避けられること」
+「検索能力が高い」
+
+
+## データベース管理システム（DBS）とは
+データベースを効率よく管理、運用するソフトウェア
+図書館司書のようなもの
+
+データベースは自動でデータを追加、削除、更新などしてくれない
+管理する人が必要
+間違って同じデータを追加してしまったり、誤ってデータを削除してしまったら大変
+人間ではなくシステムで管理
+データベースのデータ操作には「SQL」という専用のプログラムを使用
+
+
+## SQLとは
+問い合わせ言語（データの操作を行うためのデータベース言語）
+プログラミング言語ではなく、RDBMSのために作られた
+
+さまざまな検索条件やデータの操作を論理的に指定できるようになっており、どのようなデータでも効率良く検索できる
+→データの一貫性を保つことができる
+
+
+## 最近注目のデータベース「NoSQL」とは
+ビックデータなど大量のデータを扱う場合に有効
+リレーショナルデータベースの場合は大量のデータを扱っても探すデータは１つなので、同時にデータを探すことに意味がない
+
+ビックデータには巨大なデータを扱う場合に時間がかかる
+→NoSQLでは大量のコンピューターを使って「同時に大量のデータを検索」
+
+
+
+
+# MySQLについて
+https://www.sejuku.net/blog/9021
+
+## MySQLを学ぶメリット
+・世界で最も利用されているデータベース管理システム
+・WEBアプリの理解がしやすくなる
+・サーバー構築に費用の安いLAMP環境が採用されやすい
+　→LAMP環境とは「Linux」＋「Apache」＋「MySQL」「PHP（またはRuby）」の組み合わせ
+
+
+## MySQLできること
+・大規模なWEBサイトやシステムへの対応
+「Yahoo!」「Google」「Nokia」「YouTube」で採用
+・費用の削減
+低コスト
+
+
+## 特徴
+### 拡張性と柔軟性が高い
+Linux、Mac、Windowsなどを問わず動作
+
+### ストレージエンジン
+　└データベースを作成、更新、削除など基本的な操作を行うための中心の機能
+　└どんなアプリケーションでもかゆいところに手が届くので、非常に優れたパフォーマンスを得ることができる
+　└用途に合わせて掃除機のノズルを変えるように変更できる
+
+### 高い信頼性
+バックアップやリカバリー機能、24時間体制
+
+### トランザクション
+トランザクションとは、データの一貫性を保つために、一連の処理が完了するまでデータを変更しないようにできる機能のこと
+金融機関でのお金のやりとりなど、データに相違があると困る場合に役立つ機能
+
+### 強力なセキュリティ
+データベースへのアクセス制御、安全な接続を保証する「SSH」や「SSL」といったセキュリティ技術をサポート
+強力なデータ暗号機能
+
+### 他のデータベース管理システム
+Oracle
+PostgreSQL
+
+
+
+
+# phpMyAdminのインストール
+
+## 手順
+https://www.sejuku.net/blog/30282
+
+
+## phpMyAdmin
+Webブラウザ画面でMySQLデータベースを管理するソフトウェア（ツール）
+
+mv /Users/uematsumasakiyo/Downloads/phpMyAdmin-4.8.1-all-languages /Library/WebServer/Documents/phpMyAdmin
+
+
+## できること
+・データベースの作成、編集、削除
+・テーブルの作成、編集、削除
+・カラムの追加、編集、削除
+・インデックスの作成、編集、削除
+・データベース内、テーブル内でのデータの挿入、編集、削除、ソート、検索
+
+
+## phpMyAdminに接続
+http://localhost/phpMyAdmin/
+
+
+## phpMyAdminの使い方
+
+### データベースの作成・削除
+#### 作成
+・NEW ＞ 画面上部のデータベースをクリック
+・データベース名を入力し、「照合順序」を選択
+
+#### 削除
+・データベース名をチェックして削除
+
+### SQL文（コマンド）
+データベースを操作するコマンドである「SQL文」でもできる
+SQLタブを開く
+コマンドも使えると良い
+
+・作成：CREATE DATABASE database1
+・削除：DROP DATABASE database1
+
+### テーブルの追加・削除
+作成したデータベースを選択
+テーブル名とカラム数を入力、実行
+
+### データの追加・更新・削除
+データベース＞構造＞追加したいテーブル＞挿入
+
+
+
+
+データベース
+i. テーブル作成
+ii. トランザクション
+iii. ロールバック
+
+SQL基礎（CRUD操作）
+i. INSERT文
+ii. SELECT文
+iii. UPDATE文
+iv. DELETE文
+
+
+
+
+# デバックツールを使ってエラーログを見る習慣をつける
+
+一般的な方法：テールfコマンド
+ssh
+
+バグのログファイルにアクセス
+セントosのパスを覚えて欲しい
+
+./httpd/にエラーログがはかれる
+
+
+
+ターミナルを開いてデバックをしたい
+ブラウザから叩いても動く
+コマンド上でMAMPの中に動く
+blogをhtdocsにおく
+blogのpravateに移動
+
+mamp logsにエラーログがはかれる
+
+
+
+
+
+
+# データベース種類 4種類 クラット CRUD
+https://www.lynda.com/PHP-tutorials/PHPMySQL/522499-2.html
+
+## テーブルを4種類処理で作ってみる
+
+
+## テーブルの作り方
+・コマンドで作成
+・phpmyadmin
+
+しゅきい設定
+create table tbl_users (id integer );
+
+
+db.phpの// db_query($dbh);はコメントアウト
+
+セキュリティの都合上、パスワードは大体ハッシュ値にして暗号化するのが一般的
+データを何件かインサートして見て欲しい
+インサート？？？
+
+ホームポジション：shift コマンド G
+
+/Applications/MAMP/htdocs/blog/
+
+
+
+
+# データベースの利点
+銀行
+誰が更新をかけているの順番がわかるのがいい
+トランザクションの制御
+順番を守らせる時に使う
+
+ロールバック機能：元に戻す
+
+トランザクションスタート
+begin;（これをするとロールバックを使える）
+roolback;（間違った時に戻れる）
+commit;（問題なければコミット）
+
+beginしている間は他の人が作業できない
+ロックがかかる
+
+begin;かcommit;をしないでサーバーを閉じてしまうと
+ロックがかかったままになる
+→必ずbegin;かcommit;をする
+
+性別と年齢のカラムを追加してみる
+
+
+
+## 表示、取得テクニック
+・select * from tbl_user where age > 0;
+0歳より大きい
+
+・select * from tbl_user where age in (30,0);
+inは含む
+
+・頭にYを含むもの
+select * from tbl_user where like 'Y%';
+
+・後ろにAを含むもの
+select * from tbl_user where like '%A';
+%がワイルドカード
+
+・山田さんが二人いる場合（まとめたいもの）
+select user_name from tbl_user group by user_name;
+
+・削除された個数が出る
+select user_name, count(*) from tbl_user group by user_name;
+
+・sum関数
+select sum(age) from tbl_users;
+
+sql使えるとデータの集計、マーケティングに使えたりする
+
+もうひとつテーブルを作成
+職業カラムを作ってみる
+
+・同じものを結合する 二つテーブルを作って結合
+内部結合
+inner join
+
+
+
+大量のデータを一気に扱う
+
+
+
+# 宿題
+・blogの中見れるようにする→DONE
+・phpMyAdminでテーブルやカラムをつくる→DONE
+・phpmyadminの操作方法→DONE
+　└どこに記載しているのか
+・コマンドでテーブルやカラムをつくる
+・テーブル操作4種類 クラット
+・UNIXコマンド使えたほうがいい
+・sqlの操作方法
+・管理画面4つに分かれている
+ララベルは最初に準備されている
+
+サブクエリー
+
+セレクト分×セレクト分
+サブクエリー
+係数分
+
+内部結合と外部結合の違い
+　└MVCモデルの準備→次回から機能を作っていく
+
+
+
+
+## Slack
+userテーブル
+create table tbl_users (id INTEGER PRIMARY KEY AUTOINCREMENT, user_name text, password text, delete_flg integer default 0, upd_date datetime, crt_date datetime, del_date datetime);
+
+insert文
+insert into tbl_users (user_name, password) values ('Gomi', 'pass1234');
+
+rollback;
+commit;
+
+SQL RDB、この辺についても、できれば自己学習
+
+今回は早足でしたが、
+CRUD
+トランザクション制御
+ロールバック
+コミット
+内部結合などのトピックに触れました。
+
+また、以下のキーワードについても、ネットで調べてみてください。(現場でもよく使われる知識&重要そうな言葉を厳選しています)
+
+DBの正規化
+外部結合(outer join)
+サブクエリ
+ユニーク制約
+(主キー)プライマリーキー
+(外部キー)フォーリンキー
+リストア
+ダンプ
+インデックスを貼る
+デッドロック、
+論理削除と物理削除
+
+
+
+## テクニック
+・cdでホームポジション
+
+
+## 参考
+https://qiita.com/knife0125/items/bb095a85d1a5d3c8f706
+
+わかりやすい
+http://www.go-next.co.jp/blog/web/php/20735/
+
+
+
+
+
+
+# 20180616
+
+## 変更/追加
+login.php
+login2.php
+
+## モデル
+LoginModel.php
+LoginSqlModel.php
+
+## 設定系のファイル
+prvate/common/db.php(dbの接続情報はご自身の情報)や
+prvate/common/config.phpなど
+
+
+あとは_sql.txtにテーブル作成するSQL文が書かれているので実行してください。
+(既存のusersテーブルは削除して新しく作り直してください)
+
+
+・githubアカウント作成
+・配布ファイル接続
+・テーブル作成
+
+
+create table users(
+  id int AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  handle varchar(128) unique,
+  user_sei varchar(128),
+  user_mei varchar(128),
+  password varchar(128),
+  del_flg int default 0,
+  upd_date datetime,
+  crt_date datetime,
+  del_fate datetime
+);
+
+create table blog_posts(
+  id int AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  user_id int,
+  title text,
+  body text,
+  del_flg int default 0,
+  upd_date datetime,
+  crt_date datetime,
+  del_fate datetime
+);
+
+insert into users(handle, password, crt_date) values ('gomi', 'xxj31ZMTZzkVA', now());
+
+
+
+
+## ログインの仕組み
+未ログインしてないとステートメントがわからない
+
+セッション状態：誰がログインしているか
+　└Cookie
+　└session storage
+
+→PHP ログイン仕組み
+ユーザーIDとパスワードをデータベースの値と照合する
+
+privateにはアクセスできないようにしている
+.htaccess
+プライベートな情報はここに隠しておく
+https://qiita.com/kansiho/items/f56115d0cf98d078c397
+
+
+## ＭＶＣモデル
+
+?バインドしている
+★SQLインジェクション
+　└ハッカーなどの対策でプレイスホルダーを書き換える
+
+自分のアカウントをインサート
+
+アロー演算子
+https://qiita.com/hththt/items/b749a47eae7d64f0ba9a
+
+phpinfo()
+
+
+
+## ブラウザ上にエラーを表示
+phpinfo.php作成
+　└phpinfo();
+　└http://localhost/blog/phpinfo.php
+
+バージョンは以下に記載してある
+
+Loaded Configuration File
+/Applications/MAMP/bin/php/php7.1.12/conf/php.ini
+
+display_errors = Off
+↓
+display_errors = On
+
+MAMP再起動
+
+
+
+commonの中にログを出力する関数ある
+→echoよりこちら
+→Ajaxなどの時にバグる
+→ログに出力する
+common.phpにある
+
+
+
+
+
+## パスワードハッシュを作る
+php 5.5以上はpassword_hashが推奨
+http://php.net/manual/ja/function.password-hash.php
+文字列をハッシュ化する
+
+わからない場合は以下のやり方もある（古い）
+crypt("password", "3r"). "\n";
+
+
+## ハッシュについて
+https://qiita.com/rana_kualu/items/3ef57485be1103362f56
+
+ハッシュは不可逆変換（変換されたら戻らない）
+暗号化は復元可能
+
+password_hashは毎回異なるハッシュを作成する
+↓
+password_verifyを使えば照合できる
+
+password_verify
+http://php.net/manual/ja/function.password-verify.php
+
+
+
+## session_start
+http://php.net/manual/ja/function.session-start.php
+ブラウザが閉じられるまで有効なcookieがブラウザに埋め込まれる
+
+
+
+## 確認
+・現在はidのみを見ている
+・処理の流れ
+・class
+・書き方
+
+
+
+## エラー時の確認
+・エラーを確認できるようにする
+・文法が間違っていないか
+・MAMPの再起動はしたか
+
+
+
+## Cookieの確認の仕方
+・ディベロッパーツール/アプリケーション/Cookie
+・設定/コンテンツの設定/Cookie/すべての Cookie とサイトデータ
+
+
+
+## ポイント
+MVCモデルのしくみを見て理解出来れば良い
+あとで共有受けて復習
+
+MVC
+http://www.objective-php.net/mvc/about
+
+コントローラーが大きくなりがち
+mainメソッドを呼び出して使用
+処理はモデルの中で実施
+
+未ログインとログイン後を判別したい
+
+
+
+
+## ハッシュ化した値をphpmyadiminで入力してやる
+どこでうまくいっていないのか確認
+変数の中
+
+
+
+
+## 宿題
+- 最新コミットから落としてきて条件分岐通りの動作をするか？
+　└idとパスワードが一致した時に遷移、あとはエラー
+- 以下キーワードを調べてみてください。五味さん宿題
+・Sesson(cookie)
+https://saruwakakun.com/it/web/cookie-cache
+・SQLインジェクション
+https://academy.gmocloud.com/advance/20150608/700
+・プリペアードステートメント
+http://php.net/manual/ja/pdo.prepared-statements.php
+・MVCモデル
+https://blog.codecamp.jp/php_mvc01
+- クラス、インスタンス、オブジェクト、プロパティ（≒インスタンス変数）、メソッド（≒関数,メンバ関数）、継承、カプセル化、（ポリモーフィズム）多態性
+http://tracpath.com/works/development/what_is_object_oriented_programming/
+https://codezine.jp/article/detail/10215
+
+
+
+## 補足
+ちなみにMVCモデルと言うのは、オブジェクト指向設計のよくある設計パターンの１つ。
+しっかり理解するためにはオブジェクト指向のプログラミングについての理解を深めて置く必要がある。
+「オブジェクト指向とは何か？」については事前学習。
+クラス、インスタンス、オブジェクト、プロパティ（≒インスタンス変数）、メソッド（≒関数,メンバ関数）
+プログラミング言語によって呼び方や定義が若干違ったりするのですが、上記の言葉の区別はつけられるようにしておく。また、以下の概念についてもイメージできるようにしておいてください↓（言葉の意味を調べてみてください）オブジェクト指向技術の重要なキーワード。
+継承、カプセル化、（ポリモーフィズム）多態性
+
+
+
+
+## コミットログ
+おけ
+https://github.com/gomiryo/blog/commit/7c8415365efda0c7b60be8cebcea1e39b0205672
+https://github.com/gomiryo/blog/commit/3d73b6e44c74e6da830e90011697955c4b49462d
+https://github.com/gomiryo/blog/commit/1ae1b57f72cfc7ffc3079acffc37a08e1989cf5f
+https://github.com/gomiryo/blog/commit/42222cf84a53388c026ceb910e56499124bd5543
+https://github.com/gomiryo/blog/commit/559458494bcfb39096b471cd37ce2030f3bd306c
+https://github.com/gomiryo/blog/commit/9ae7a4ae3aee32eb2eefad7932229fe622027ed5
+https://github.com/gomiryo/blog/commit/aa14840f23d31cc74b39cf96d3d3a0239c557035
+https://github.com/gomiryo/blog/commit/1e68fd87d3475da203d35b192ebc53fafb5641fa
+
+
+
+
+_sql.txt
+いるっけ？
+insert into users(handle, password, crt_date) values ('gomi', 'xxj31ZMTZzkVA', now());
+↓
+ただのメモ
+
+phpmyadiminに登録済
+insert into users(handle, password, crt_date) values ('masakiyo', '2018', now());
+
+
+
+# ハッシュ化
+http://localhost/blog/test.php
+
+## ID
+3
+
+## handle
+masakiyo
+
+## password
+uematsu
+↓
+3rIYGUM.y9JtU
+
+
+
+
+
+
+# 20180623
+
+## ゴール
+なるほどねってわかる状態
+最低限人の読んだコードを読めるようになる
+コードに書くとどうなるの？
+
+## オブジェクト指向
+モノを人間がわかりやすく書く
+
+エコーした文字列を吐き出す環境
+
+
+
+
+## オブジェクト指向
+抽象的なことから具体的なものにする考え方
+
+動物
+　└くま
+　　└ツキノワグマ
+　　└しろくま
+　　　└ゴン太
+
+phpの基礎は前提
+100行ぐらいのコードでつくる
+
+
+
+## 用語
+クラス、インスタンス、メソッド、
+コンストラクタ、ゲッター、セッター、
+継承（インヘリタンス）、抽象（アブストラクト）
+オーバーライド（メソッドの上書き）
+アクセス権限（public, protected, private）
+
+
+
+## 課題
+RPGをつくる
+ランダム変数
+クラスを上書きする
+セットすると結果が出る
+
+五味さんコミット
+https://github.com/gomiryo/blog/tree/master/test
+
+
+
+
+
+
+
+
+
+
+
+# 20180630
+
+## 参考
+XMLHttpRequest
+https://www.weblio.jp/content/XHR
+
+ページネーション
+https://manablog.org/php-pagination/
+(ページネーションはJQueryを使いません)
+
+ブログ作成に役立ちそうな記事
+http://ponk.jp/php/basic/blog
+
+## やること
+記事を投稿
+投稿した記事一覧を表示
+ページネーションで画面遷移
+事前知識を仕入れておいてください。
+
+
+## 宿題
+・ソースRVしてもらう
+　└コミット
+・他人のソースが読めるようになって欲しい→先ずは読めるようにして欲しい
+　└MVCモデルじゃないんですよ〜修正しにくいんですよ
+　└どこから継承して何が問題かを突き止められれば良い
+
+
+
+CSS
+MUI マテリアルデザイン
+https://www.muicss.com/
+
+
+
+httpヘッダーを読み込む前に改行が入っているとエラーになる
+終わりのタグを消してしまって良い ?>
+
+
+
+insert文を使って記事を入れてみる
+
+
+
+INSERT INTO `blog_posts`(`user_id`, `title`, `body`,`crt_date`) VALUES (3,"PHPの勉強会","今日はPHPの勉強会に参加してます。","2018/07/01 10:00")
+
+INSERT INTO `blog_posts`(`user_id`, `title`, `body`,`crt_date`) VALUES (3,"PHPの勉強会","今日はPHPの勉強会に参加してます。",now())
+
+now()
+今の時間
+カラムのvalue値は文字列として認識させる
+
+
+mainの中
+pagemodel
+
+
+
+内部結合、外部結合
+
+
+blog_postsとuser_のidを紐付ける
+
+blog_posts.id, uesrs.handle,指定して出力もできる
+
+select * from blog_posts left outer join users on blog_post.id = users;
+
+
+欲しいのがひっかけられないのは以下が原因
+inner join
+outer join
+
+
+
+SELECT * FROM blog_posts LEFT OUTER JOIN users ON blog_posts.user_id = users.id
+
+
+作成順：order byをつけたほうが良い
+https://sql-oracle.com/sqlserver/?p=431
+ASC・・・昇順（小さいもの順）
+DESC・・・降順（大きいもの順）
+
+
+select id from blog_posts order by brog_posts.crt_date desc limit 10 10
+
+ページネイションのための全体の記事数をとる
+
+
+
+
+
+## 五味さんコミット
+https://github.com/gomiryo/blog/commit/9f32152b3e9cc894843208c477730e0c1abed34d
