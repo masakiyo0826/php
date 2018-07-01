@@ -1,3 +1,12 @@
+# sql参考
+## SQL素人でも分かるテーブル結合(inner joinとouter join)
+https://qiita.com/naoki_mochizuki/items/3fda1ad6594c11d7b43c
+
+## 外部結合(OUTER JOIN句)
+https://www.dbonline.jp/sqlite/join/index2.html
+
+
+
 create table users(
   id int AUTO_INCREMENT NOT NULL PRIMARY KEY,
   handle varchar(128) unique,
@@ -21,4 +30,33 @@ create table blog_posts(
   del_fate datetime
 );
 
+--ブログ記事
+insert into blog_posts(
+  user_id,
+  title,
+  body,
+  crt_date
+) values (
+  1,
+  'today is fine.',
+  'hello. is very enjoy.',
+  now()
+);
+
+insert into blog_posts(
+  user_id,
+  title,
+  body,
+  crt_date
+) values (
+  1,
+  'today is lain.',
+  'hello. today is not bad.',
+  now()
+);
+
+
+
 insert into users(handle, password, crt_date) values ('gomi', 'xxj31ZMTZzkVA', now());
+
+insert into users(handle, password, crt_date) values ('masakiyo', '2018', now());

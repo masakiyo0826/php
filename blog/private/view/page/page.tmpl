@@ -4,15 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="//cdn.muicss.com/mui-latest/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <link href="/blog/css/mui-0.9.39/css/mui.min.css" rel="stylesheet" type="text/css" />
     <link href="/blog/css/mui-0.9.39/css/style.css" rel="stylesheet" type="text/css" />
     <script src="/blog/css/mui-0.9.39/js/mui.min.js"></script>
   </head>
   <body>
+  	<!-- Tutorial HTML goes here -->
     <div id="sidebar">
       <div class="mui--text-white mui--text-display1 mui--align-vertical">SAMPLE BLOG</div>
     </div>
     <div id="content" class="mui-container-fluid">
+      <!-- blog posts go here -->
       <div class="mui-row">
         <div class="mui-col-sm-10 mui-col-sm-offset-1">
           <br>
@@ -20,30 +22,33 @@
           <div class="mui--text-black-54 mui--text-body2">PINNED POST</div>
           <div class="mui-divider"></div>
           <br>
+
+          <!-- blog goes here -->
           <div class="mui--text-headline">MUI Acquires New Features</div>
           <div class="mui--text-black-54">By <a href="#">Team MUI</a> 3 days ago</div>
           <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis aliquam ipsum sed dignissim. Sed ac accumsan odio. Vivamus tristique dignissim neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc cursus felis nec purus condimentum vestibulum. Donec mauris nisi, sollicitudin eget iaculis id, suscipit id odio. <a href="#">Read more...</a></div>
           <br>
           <br>
-
-
-
           <div class="mui--text-black-54 mui--text-body2">RECENT POSTS</div>
           <div class="mui-divider"></div>
           <br>
 
-
-
-
-          <!--blog-->
-          <?php foreach($obj->blog as $val) { ?>
-          <div class="mui--text-headline"><?php echo $val["title"]; ?></div>
-          <div class="mui--text-black-54">By <a href="#"><?=$val["handle"]?></a> 1 week ago</div>
-          <div><?=$val["body"] ?><a href="#">Read more...</a></div>
+          <!-- blog goes here -->
+          <? foreach($obj->blog as $val): ?>
+          <!--phpは色々な書き方がある-->
+          <div class="mui--text-headline"><?=$val["blog_id"]?>.<?=$val["title"]?></div>
+          <div class="mui--text-black-54">By <a href="#"><?=$val["handle"]?></a> <?=$val["crt_date"]?></div>
+          <div><?=$val["body"]?><a href="#">Read more...</a>
+          </div>
           <br>
-          <?php } ?>
+          <? endforeach; ?>
 
         </div>
+        <div class="mui-col-sm-10 mui-col-sm-offset-1 pagination">
+			<?php for ($x=1; $x <= $obj->pagination ; $x++) { ?>
+				<a href="?page=<?php echo $x ?>"><?php echo $x; ?></a>
+			<?php } // End of for ?>
+		</div>
       </div>
     </div>
   </body>

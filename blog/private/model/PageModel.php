@@ -9,6 +9,7 @@ require_once(MODEL_PATH. "BlogPostsSqlModel.php");
 class PageModel{
 	const MAX_PAGE = 10;
 	var $blog = array();
+	var $pagination = 0;
 
 	  function main(){
 	  	// ここでエラーを出力をしている
@@ -16,22 +17,22 @@ class PageModel{
 
 	    // 三項演算子でページを取得
 	    $page = isset($_GET["page"]) ? $_GET["page"] : 0;
-	    cLog("page=". $page);
-	    // $page = self::MAX_PAGE * $page;
+	    // cLog("page=". $page);
 
+	    // $start = 1にしてelseを書くよりも初期値を$start = 0;
 	    $start = 0;
-	    if ($start > 1) {
-	    	$start = (self::MAX_PAGE * $page - 10) - 10;
+	    if ($page > 1) {
+	    	$start = (self::MAX_PAGE * $page) - self::MAX_PAGE;
 	    }
 
-	    $obj = new BlogPostsSqlModel;
+	    $obj = new BlogPostsSqlModel();
 	    $this->blog = $obj->get_blog_posts($start, self::MAX_PAGE);
 
-	    // $res = $PostObj->get_blog_posts();
-	    // echo print_r($res, true);
-	    var_dump($res);
-	  }
+	    // $page_num = count($this->blog);
+	    $page_num = $obj->get_blog_count();
 
+	    $this->pagination = ceil($page_num / self::MAX_PAGE);
+	  }
 }
 
 ?>

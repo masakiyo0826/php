@@ -1,6 +1,11 @@
-
-#
-
-#css flame work
+# css flame work
 https://www.muicss.com/
 
+# login
+http://localhost/blog/login.php
+id：masakiyo
+pass：uematsu
+
+※idは以下のファイルでhandleの内容をidとして読み込んでいる
+ファイル：htdocs/blog/private/model/LoginSqlModel.php
+記述箇所：$sql = "select * from users where handle = ?;";
