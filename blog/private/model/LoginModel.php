@@ -29,6 +29,8 @@ class LoginModel {
     $res = $obj->get_users($this->id);
     // echo print_r($res, true);
     if(count($res) === 0){
+      echo "hoge";
+      exit();
       header('location: ./login.php?err=1');
       exit();
     }
