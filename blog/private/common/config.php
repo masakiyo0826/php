@@ -1,4 +1,6 @@
 <?php
+ini_set('mbstring.internal_encoding' , 'UTF-8');
+
 // FILE_PATH
 define("BASE_PATH", "/Applications/MAMP/htdocs/blog/");
 define("PUBLIC_PATH", BASE_PATH);

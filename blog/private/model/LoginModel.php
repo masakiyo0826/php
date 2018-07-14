@@ -25,7 +25,6 @@ class LoginModel {
 
   function main(){
     $obj = new LoginSqlModel();
-    // echo $this->id."<br/>";
     $res = $obj->get_users($this->id);
     // echo print_r($res, true);
     if(count($res) === 0){
@@ -38,6 +37,7 @@ class LoginModel {
     // crypt("password", '3r')
     // echo "入力値：". crypt($this->pw, '3r'). "<br/>";
     // echo "照合元：". $res[0]['password']. "<br/>";
+    // exit();
 
     if(crypt($this->pw, '3r') === $res[0]['password']){
       session_start();
