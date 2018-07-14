@@ -2,9 +2,7 @@
 // ini_set('mbstring.internal_encoding' , 'UTF-8');
 
 // FILE_PATH
-// define("BASE_PATH", "/Applications/MAMP/htdocs/blog/");
-// define("PUBLIC_PATH", "/Applications/MAMP/htdocs/blog/");
-define("PUBLIC_PATH", "/Applications/MAMP/htdocs/blog/");
+define("PUBLIC_PATH", "http://localhost/blog/");
 define("PRIVATE_PATH", BASE_PATH. "private/");
 define("TEMPLATE_PATH", PRIVATE_PATH. "view/");
 define("MODEL_PATH", PRIVATE_PATH. "model/");

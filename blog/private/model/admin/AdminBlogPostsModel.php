@@ -50,7 +50,7 @@ class AdminBlogPostsModel{
 	// 新規作成
 	function setBlogPosts(){
 		// 新規作成はここに記載していく
-		echo "setBlogPosts() start";
+		// echo "setBlogPosts() start";
 
 		$obj = new BlogPostsSqlModel();
 		$obj->setBlogPosts();
