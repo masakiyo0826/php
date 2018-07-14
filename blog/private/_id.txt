@@ -9,3 +9,8 @@ pass：uematsu
 ※idは以下のファイルでhandleの内容をidとして読み込んでいる
 ファイル：htdocs/blog/private/model/LoginSqlModel.php
 記述箇所：$sql = "select * from users where handle = ?;";
+
+#git upload
+git add --all
+git commit -a -m "ver 0.2.2"
+git push origin master
