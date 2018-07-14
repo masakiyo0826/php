@@ -25,6 +25,7 @@ class LoginModel {
 
   function main(){
     $obj = new LoginSqlModel();
+    // ユーザーID取ってる
     $res = $obj->get_users($this->id);
     // echo print_r($res, true);
     // exit();
@@ -43,6 +44,7 @@ class LoginModel {
     if(crypt($this->pw, '3r') === $res[0]['password']){
       session_start();
       $_SESSION['status'] = 'login';
+      $_SESSION['user_id'] = $res[0]['id'];
       header('location: ./page/page.php');
       exit();
     }else{

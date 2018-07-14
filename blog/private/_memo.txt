@@ -1002,3 +1002,60 @@ select id from blog_posts order by brog_posts.crt_date desc limit 10 10
 
 ## 五味さんコミット
 https://github.com/gomiryo/blog/commit/9f32152b3e9cc894843208c477730e0c1abed34d
+
+
+
+
+
+
+
+
+
+20180714
+
+## 管理画面
+http://localhost/blog/admin/
+
+記事管理作成中
+ゴリゴリ作成
+
+jsでエラーチェック
+
+## 基本知識
+inputタグ内の中がサーバーに送信される
+
+
+htdocs/blog/private/view/admin/blog_posts_new.php
+
+メソッドが長すぎるのは良くない
+画面に収まるぐらい
+負えなくなる
+
+sqlモデルをインスタンス化して
+
+
+
+pdoの仕組みを使っている
+pdo インサートで調べてやってみる
+
+
+
+htdocs/blog/private/common/config.php
+
+require(MODEL_PATH. "SessionCheckModel.php");
+
+記事作成時にユーザーIDをもたせたい
+
+
+
+五味さんコミット
+https://github.com/gomiryo/blog/commit/3a34b08feb787e85995c4cc2a10bd0064b9e0e9f
+https://github.com/gomiryo/blog/commit/1aedf4a1dbdf139ee753760b4d7a6b5c704dbae2
+
+
+エラー
+ini_set('mbstring.internal_encoding' , 'UTF-8');
+
+
+
+

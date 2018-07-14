@@ -1,0 +1,17 @@
+<?php
+
+$SessionCheckModel = new SessionCheckModel();
+$SessionCheckModel->main();
+
+
+class BlogPostsSqlModel {
+	session_start();
+	if( !isset($_SESSION['status']) ){
+		// 絶対パスにする（定数か何かを使ってやる）
+	  header("location: .PUBLIC_PATH ./login.php?err=2");
+	  exit;
+	}
+}
+
+
+?>

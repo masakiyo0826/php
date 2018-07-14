@@ -47,4 +47,26 @@ class BlogPostsSqlModel {
     return $res;
   }
 
+  // ブログ記事を作成
+  function setBlogPosts() {
+
+    $user_id = $_SESSION["user_id"];
+    $title = $POST["title"];
+    $body = $POST["body"];
+
+    $sql = " insert into blog_posts ";
+    $sql .= " (title, body, user_id, crt_date) values ";
+    $sql .= " (:title, :body, :user_id, now() ) ";
+
+    $stmt = $this->dbh->prepare($sql);
+    $stmt->bindParam(':title', $title, PDO::PARAM_STR);
+    $stmt->bindParam(':body', $body, PDO::PARAM_STR);
+    $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
+
+    $stmt->execute();
+    //var_dump($res);
+
+    return 0;
+  }
+
 }
